@@ -1,8 +1,11 @@
 package com.devonfw.app.java.order.orderservice.dataaccess.api;
 
+import javax.persistence.Entity;
+
 import com.devonfw.app.java.order.general.dataaccess.api.ApplicationPersistenceEntity;
 import com.devonfw.app.java.order.orderservice.common.api.Item;
 
+@Entity(name = "Item")
 public class ItemEntity extends ApplicationPersistenceEntity implements Item {
 
   private String name;

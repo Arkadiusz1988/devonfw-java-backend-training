@@ -3,6 +3,7 @@ package com.devonfw.app.java.order.orderservice.dataaccess.api;
 import java.time.LocalDate;
 import java.util.Set;
 
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
@@ -15,6 +16,7 @@ import com.devonfw.app.java.order.general.dataaccess.api.ApplicationPersistenceE
 import com.devonfw.app.java.order.orderservice.common.api.Order;
 import com.devonfw.app.java.order.orderservice.common.api.OrderStatus;
 
+@Entity(name = "OrderSummary")
 public class OrderEntity extends ApplicationPersistenceEntity implements Order {
 
   private LocalDate creationDate;
@@ -32,6 +34,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
   /**
    * @return creationDate
    */
+  @Override
   public LocalDate getCreationDate() {
 
     return this.creationDate;
@@ -40,6 +43,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
   /**
    * @param creationDate new value of {@link #getcreationDate}.
    */
+  @Override
   public void setCreationDate(LocalDate creationDate) {
 
     this.creationDate = creationDate;
@@ -84,6 +88,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
   /**
    * @return price
    */
+  @Override
   public Double getPrice() {
 
     return this.price;
@@ -92,6 +97,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
   /**
    * @param price new value of {@link #getprice}.
    */
+  @Override
   public void setPrice(Double price) {
 
     this.price = price;
@@ -100,6 +106,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
   /**
    * @return status
    */
+  @Override
   @Enumerated(EnumType.STRING)
   public OrderStatus getStatus() {
 
@@ -109,6 +116,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
   /**
    * @param status new value of {@link #getstatus}.
    */
+  @Override
   public void setStatus(OrderStatus status) {
 
     this.status = status;
@@ -122,6 +130,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
     return serialVersionUID;
   }
 
+  @Override
   @Transient
   public Long getOwnerId() {
 
@@ -130,6 +139,7 @@ public class OrderEntity extends ApplicationPersistenceEntity implements Order {
     return null;
   }
 
+  @Override
   public void setOwnerId(Long ownerId) {
 
     CustomerEntity e = new CustomerEntity();
